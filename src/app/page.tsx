@@ -7,7 +7,7 @@ async function Images() {
   const images = await db.query.images.findMany({ orderBy: (model, { desc }) => desc(model.id) });
   return (
     <div className="flex flex-wrap gap-4 px-4">
-      {[...images, ...images, ...images].map(({ url, name }, index) => (
+      {images.map(({ url, name }, index) => (
         <div key={index} className="w-48">
           <img src={url} />
           <div>{name}</div>
